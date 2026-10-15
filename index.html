@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartLife AI - Asisten digital untuk mengelola tugas dan pengeluaran sehari-hari.">
+    <title>SmartLife AI | Digital Life Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+
+    <header class="navbar">
+        <a href="#home" class="brand">
+            <span class="brand-icon">✦</span>
+            <span>SmartLife <b>AI</b></span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#tasks">Tugas</a>
+            <a href="#finance">Keuangan</a>
+            <a href="#assistant">AI Assistant</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="themeButton" class="round-button" aria-label="Ubah tema">☾</button>
+            <button id="menuButton" class="menu-button" aria-label="Buka menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-copy reveal">
+                <div class="badge"><span></span> DIGITAL ASSISTANT</div>
+                <h1>Hidup lebih <em>teratur</em>,<br>keputusan lebih <em>cerdas.</em></h1>
+                <p>
+                    SmartLife AI membantu pelajar mengelola tugas,
+                    memantau pengeluaran, dan mendapatkan rekomendasi
+                    aktivitas sehari-hari dalam satu dashboard.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#tasks" class="primary-button">Mulai Mengatur <span>→</span></a>
+                    <a href="#assistant" class="secondary-button">Lihat AI Assistant</a>
+                </div>
+                <div class="hero-note">
+                    <span>✓</span> Berjalan langsung di browser &nbsp;•&nbsp;
+                    <span>✓</span> Data tersimpan di perangkat
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="ai-orbit">
+                    <div class="orbit orbit-a"></div>
+                    <div class="orbit orbit-b"></div>
+                    <div class="ai-core">
+                        <div class="ai-face">✦</div>
+                        <strong>AI</strong>
+                        <small>READY</small>
+                    </div>
+                    <div class="float-card card-top">
+                        <span>📈</span>
+                        <div><small>Progress</small><b id="heroProgress">0%</b></div>
+                    </div>
+                    <div class="float-card card-bottom">
+                        <span>✓</span>
+                        <div><small>Status</small><b>Produktif</b></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section reveal">
+            <div class="stat-box">
+                <span class="stat-icon">📝</span>
+                <div><b id="totalTasks">0</b><small>Total Tugas</small></div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-icon">✓</span>
+                <div><b id="completedTasks">0</b><small>Selesai</small></div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-icon">💳</span>
+                <div><b id="totalExpenses">Rp0</b><small>Pengeluaran</small></div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-icon">⚡</span>
+                <div><b id="progressPercent">0%</b><small>Progress</small></div>
+            </div>
+        </section>
+
+        <section id="tasks" class="section">
+            <div class="section-heading reveal">
+                <div>
+                    <span class="section-label">01 / PRODUCTIVITY</span>
+                    <h2>Atur tugasmu.</h2>
+                </div>
+                <p>Tambahkan tugas dan tentukan tingkat prioritasnya.</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="glass-card reveal">
+                    <div class="card-heading">
+                        <span class="heading-icon">＋</span>
+                        <div><h3>Tambah Tugas</h3><small>Buat daftar aktivitasmu</small></div>
+                    </div>
+                    <label for="taskInput">Nama tugas</label>
+                    <input id="taskInput" type="text" maxlength="100" placeholder="Contoh: Mengerjakan tugas sekolah">
+                    <label for="priorityInput">Prioritas</label>
+                    <select id="priorityInput">
+                        <option value="Tinggi">Tinggi</option>
+                        <option value="Sedang" selected>Sedang</option>
+                        <option value="Rendah">Rendah</option>
+                    </select>
+                    <button class="primary-button full-button" id="addTaskButton">Tambah Tugas <span>＋</span></button>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="card-heading task-heading">
+                        <div>
+                            <span class="section-label">TASK LIST</span>
+                            <h3>Tugas saya</h3>
+                        </div>
+                        <span class="count-pill" id="taskPill">0 tugas</span>
+                    </div>
+                    <div id="taskList" class="item-list">
+                        <div class="empty-state">Belum ada tugas. Tambahkan tugas pertamamu.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="finance" class="section">
+            <div class="section-heading reveal">
+                <div>
+                    <span class="section-label">02 / FINANCE</span>
+                    <h2>Pantau uangmu.</h2>
+                </div>
+                <p>Catat pengeluaran agar kebiasaan finansial lebih terkontrol.</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="glass-card reveal">
+                    <div class="card-heading">
+                        <span class="heading-icon">Rp</span>
+                        <div><h3>Catat Pengeluaran</h3><small>Masukkan transaksi baru</small></div>
+                    </div>
+                    <label for="expenseName">Keperluan</label>
+                    <input id="expenseName" type="text" maxlength="80" placeholder="Contoh: Makan siang">
+                    <label for="expenseAmount">Jumlah</label>
+                    <input id="expenseAmount" type="number" min="1" placeholder="Contoh: 15000">
+                    <label for="expenseCategory">Kategori</label>
+                    <select id="expenseCategory">
+                        <option>Makanan</option>
+                        <option>Transportasi</option>
+                        <option>Sekolah</option>
+                        <option>Hiburan</option>
+                        <option>Lainnya</option>
+                    </select>
+                    <button class="primary-button full-button" id="addExpenseButton">Simpan Pengeluaran <span>＋</span></button>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="card-heading">
+                        <div><span class="section-label">EXPENSE HISTORY</span><h3>Riwayat pengeluaran</h3></div>
+                        <span class="count-pill" id="expensePill">Rp0</span>
+                    </div>
+                    <div id="expenseList" class="item-list">
+                        <div class="empty-state">Belum ada pengeluaran.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="assistant" class="section assistant-section">
+            <div class="ai-panel reveal">
+                <div class="ai-panel-top">
+                    <div class="assistant-logo">✦</div>
+                    <div>
+                        <span class="section-label">03 / ARTIFICIAL INTELLIGENCE</span>
+                        <h2>Smart Recommendation</h2>
+                    </div>
+                </div>
+
+                <div class="recommendation-box">
+                    <div class="pulse-dot"></div>
+                    <p id="recommendation">Klik tombol analisis untuk mendapatkan rekomendasi berdasarkan aktivitasmu.</p>
+                </div>
+
+                <div class="ai-actions">
+                    <button class="primary-button" id="analyzeButton">Analisis Aktivitas <span>✦</span></button>
+                    <button class="secondary-button" id="clearDataButton">Reset Semua Data</button>
+                </div>
+
+                <p class="ai-disclosure">
+                    <b>Catatan:</b> fitur rekomendasi pada versi ini menggunakan logika berbasis aturan
+                    untuk mensimulasikan pengambilan keputusan berbantuan AI secara offline.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <strong>SmartLife <span>AI</span></strong>
+            <p>Solusi digital untuk kehidupan sehari-hari.</p>
+        </div>
+        <p>Project Pelatihan TIK 2026 • HTML • CSS • JavaScript</p>
+    </footer>
+
+    <div id="toast" class="toast" role="status"></div>
+    <script src="script.js"></script>
+</body>
+</html>
